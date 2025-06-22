@@ -1,10 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import bannerImg from '../assets/IMG_0423.jpeg';
+import markGuy from '../assets/7a2490ef-4de9-40a8-8939-7f7898bfe184.jpeg';
 
 export default function Home() {
   return (
     <div className="pt-16">
+      {/* Banner Image */}
+      <div className="w-full relative">
+        <img
+          src={bannerImg}
+          alt="Mark Chamane banner"
+          className="w-full h-64 md:h-96 object-cover object-center shadow-lg rounded-b-3xl border-b-4 border-amber-400"
+          style={{ marginTop: '-4rem', zIndex: 1, position: 'relative' }}
+        />
+        <div className="absolute top-0 left-0 w-full h-full bg-black/30 rounded-b-3xl" style={{ zIndex: 2 }}></div>
+      </div>
       {/* Hero Section */}
       <section className="bg-darkBg text-white dark:bg-white dark:text-black transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -58,9 +70,16 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black mb-4">
               Why Choose Mark Chamane?
             </h2>
-            <p className="text-xl text-white dark:text-black max-w-2xl mx-auto">
+            <p className="text-xl text-white dark:text-black max-w-2xl mx-auto mb-8">
               With over 15 years of experience, Mark delivers impactful presentations that drive real change.
             </p>
+            <div className="flex justify-center mb-8">
+              <img
+                src={markGuy}
+                alt="Mark Chamane portrait"
+                className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-2xl shadow-lg border-4 border-slate-900 dark:border-white bg-white dark:bg-slate-900 transition-colors duration-300"
+              />
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">

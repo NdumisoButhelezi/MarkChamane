@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, LogOut, Settings } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,9 +8,18 @@ import logoLight from '../assets/darkmode.jpeg';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { currentUser, userData, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -32,7 +41,11 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-900 dark:border-gray-800 backdrop-blur-sm z-50 border-b border-gray-100 transition-colors duration-300">
+    <nav className={`fixed top-0 w-full z-50 border-b border-gray-100 transition-colors duration-300 backdrop-blur-sm ${
+      scrolled
+        ? 'bg-white/95 dark:bg-gray-900 dark:border-gray-800'
+        : 'bg-transparent dark:bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center font-bold text-xl text-slate-800 dark:text-white">

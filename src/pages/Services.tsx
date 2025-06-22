@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, CheckCircle, Users, Mic, Award } from 'lucide-react';
+import bgImg from '../assets/7a2490ef-4de9-40a8-8939-7f7898bfe184.jpeg';
 
 export default function Services() {
   const services = [
@@ -78,8 +79,12 @@ export default function Services() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 bg-gray-50 dark:bg-white transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="py-20 bg-gray-50 dark:bg-black transition-colors duration-300 relative overflow-hidden"
+        style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className="absolute inset-0 bg-black/60 dark:bg-black/80 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-800 dark:text-black mb-4">
               Additional Services
