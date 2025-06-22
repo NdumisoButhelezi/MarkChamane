@@ -72,7 +72,7 @@ export default function Booking() {
     
     try {
       // Create booking object with only non-empty optional fields
-      const bookingData = {
+      const bookingData: { [key: string]: any } = {
         name: formData.name,
         email: formData.email,
         company: formData.company,
@@ -140,7 +140,7 @@ export default function Booking() {
 
   return (
     <div className="pt-16">
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -154,11 +154,11 @@ export default function Booking() {
             </p>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white dark:bg-black rounded-2xl shadow-xl p-8 transition-colors duration-300">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                     Full Name *
                   </label>
                   <input
@@ -167,12 +167,12 @@ export default function Booking() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                     Email Address *
                   </label>
                   <input
@@ -182,29 +182,29 @@ export default function Booking() {
                     onChange={handleInputChange}
                     required
                     readOnly
-                    className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed"
+                    className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-black text-gray-600 dark:text-white cursor-not-allowed"
                     placeholder="your@email.com"
                   />
-                  <p className="text-xs text-slate-500 mt-1">Email is auto-filled from your account</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-300 mt-1">Email is auto-filled from your account</p>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Phone Number <span className="text-slate-400">(optional)</span>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
+                    Phone Number <span className="text-slate-400 dark:text-slate-300">(optional)</span>
                   </label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                     placeholder="+27 82 123 4567"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                     Company/Organization *
                   </label>
                   <input
@@ -213,14 +213,14 @@ export default function Booking() {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                     placeholder="Your company name"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                   Event Type *
                 </label>
                 <select
@@ -228,7 +228,7 @@ export default function Booking() {
                   value={formData.eventType}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                 >
                   <option value="">Select event type</option>
                   <option value="Keynote Speaking">Keynote Speaking</option>
@@ -242,7 +242,7 @@ export default function Booking() {
 
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                     Event Date *
                   </label>
                   <div className="relative">
@@ -253,25 +253,25 @@ export default function Booking() {
                       onChange={handleInputChange}
                       min={today}
                       required
-                      className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white"
+                      className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                     />
                     <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Event Time <span className="text-slate-400">(optional)</span>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
+                    Event Time <span className="text-slate-400 dark:text-slate-300">(optional)</span>
                   </label>
                   <div className="relative">
                     <select
                       name="eventTime"
                       value={formData.eventTime}
                       onChange={handleInputChange}
-                      className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white appearance-none"
+                      className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white appearance-none"
                     >
                       <option value="">Select time</option>
                       {timeOptions.map((time) => (
-                        <option key={time.value} value={time.value}>
+                        <option key={time.value} value={time.value} className="text-slate-800 dark:text-white bg-white dark:bg-black">
                           {time.label}
                         </option>
                       ))}
@@ -285,14 +285,14 @@ export default function Booking() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Duration <span className="text-slate-400">(optional)</span>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
+                    Duration <span className="text-slate-400 dark:text-slate-300">(optional)</span>
                   </label>
                   <select
                     name="duration"
                     value={formData.duration}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                   >
                     <option value="">Select duration</option>
                     <option value="30 minutes">30 minutes</option>
@@ -310,14 +310,14 @@ export default function Booking() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Expected Attendees <span className="text-slate-400">(optional)</span>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
+                    Expected Attendees <span className="text-slate-400 dark:text-slate-300">(optional)</span>
                   </label>
                   <select
                     name="attendees"
                     value={formData.attendees}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                   >
                     <option value="">Select attendee range</option>
                     <option value="1-10">1-10 people</option>
@@ -330,7 +330,7 @@ export default function Booking() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                     Event Location *
                   </label>
                   <input
@@ -339,21 +339,21 @@ export default function Booking() {
                     value={formData.location}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                     placeholder="City, Province or Virtual"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Budget Range <span className="text-slate-400">(optional)</span>
+                <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
+                  Budget Range <span className="text-slate-400 dark:text-slate-300">(optional)</span>
                 </label>
                 <select
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all bg-white dark:bg-black text-slate-800 dark:text-white"
                 >
                   <option value="">Select budget range (optional)</option>
                   <option value="Under R25,000">Under R25,000</option>
@@ -366,7 +366,7 @@ export default function Booking() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-700 dark:text-white mb-2">
                   Event Description & Special Requirements *
                 </label>
                 <textarea
@@ -375,19 +375,19 @@ export default function Booking() {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-vertical"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-vertical bg-white dark:bg-black text-slate-800 dark:text-white"
                   placeholder="Tell us about your event, audience, goals, and any special requirements..."
                 ></textarea>
               </div>
 
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <div className="bg-amber-50 dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-lg p-4 transition-colors duration-300">
                 <div className="flex items-start gap-3">
-                  <div className="bg-amber-100 p-1 rounded-full mt-0.5">
+                  <div className="bg-amber-100 dark:bg-slate-700 p-1 rounded-full mt-0.5">
                     <Calendar className="text-amber-600" size={16} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-amber-800 mb-1">Booking Notice</h4>
-                    <p className="text-sm text-amber-700">
+                    <h4 className="font-semibold text-amber-800 dark:text-amber-300 mb-1">Booking Notice</h4>
+                    <p className="text-sm text-amber-700 dark:text-amber-200">
                       For the best availability, please submit your booking request at least 4-6 weeks in advance. 
                       Rush bookings may be accommodated based on availability.
                     </p>
@@ -398,7 +398,7 @@ export default function Booking() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white dark:text-black py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {loading ? 'Submitting...' : 'Submit Booking Request'}
               </button>

@@ -55,30 +55,30 @@ export default function Testimonials() {
 
   return (
     <div className="pt-16">
-      <section className="py-20">
+      <section className="py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">
               What Event Organizers Say
             </h1>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-slate-600 dark:text-white">
               Real feedback from event organizers who trusted Mark with their most important events.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white dark:bg-black rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow transition-colors duration-300">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} size={16} className="text-amber-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-slate-600 mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-slate-600 dark:text-white mb-6 italic">"{testimonial.content}"</p>
                 <div className="border-t pt-4">
-                  <div className="font-semibold text-slate-800">{testimonial.name}</div>
-                  <div className="text-sm text-slate-500 mb-2">{testimonial.role}</div>
-                  <div className="flex justify-between text-xs text-slate-400">
+                  <div className="font-semibold text-slate-800 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-slate-500 dark:text-slate-300 mb-2">{testimonial.role}</div>
+                  <div className="flex justify-between text-xs text-slate-400 dark:text-slate-200">
                     <span>{testimonial.event}</span>
                     <span>{testimonial.attendees} attendees</span>
                   </div>
@@ -90,11 +90,11 @@ export default function Testimonials() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-slate-800 text-white">
+      <section className="py-20 bg-slate-800 dark:bg-white text-white dark:text-black transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Proven Track Record</h2>
-            <p className="text-xl text-slate-300">Numbers that speak for themselves</p>
+            <p className="text-xl text-slate-300 dark:text-slate-700">Numbers that speak for themselves</p>
           </div>
           
           <div className="grid md:grid-cols-4 gap-8 text-center">
