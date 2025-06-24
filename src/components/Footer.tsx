@@ -28,7 +28,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-slate-400">
-              <li>+27 82 456 7890</li>
+              <li>+27 61 053 1620</li>
               <li><a href="mailto:info@markedbygreatness.co.za" className="hover:underline text-white">info@markedbygreatness.co.za</a></li>
               <li className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-amber-400" />
