@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
+    "animejs": "^4.0.2",
     "chart.js": "^4.5.0",
     "firebase": "^10.7.1",
+    "framer-motion": "^12.19.2",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",

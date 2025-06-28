@@ -1,140 +1,114 @@
-import React from 'react';
 import { CheckCircle, User } from 'lucide-react';
+import { motion } from 'framer-motion';
 import markPortrait from '../assets/0dea5f8c-2cda-4714-bf8c-4d00dd14c054.jpeg';
-import markSpeaking from '../assets/078E7C7E-BEA2-423F-8F2A-278B35496A47.jpeg';
+import { Timeline, TimelineItem } from '../components/Timeline';
 
 export default function About() {
   return (
     <div className="pt-16">
-      <section className="py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              <div className="flex justify-center mb-6 lg:mb-0">
-                <img
-                  src={markPortrait}
-                  alt="Mark Chamane portrait"
-                  className="w-56 h-56 md:w-72 md:h-72 object-cover rounded-2xl shadow-lg border-4 border-white dark:border-slate-900 bg-white dark:bg-slate-900"
-                />
-              </div>
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 dark:from-white dark:to-slate-100 rounded-2xl p-8 text-white dark:text-black flex flex-col items-center lg:items-start w-full max-w-xs">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-amber-50 to-black dark:from-black dark:via-slate-900 dark:to-amber-900 transition-colors duration-300">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="flex flex-col md:flex-row gap-10 items-center justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            {/* Portrait with enhanced shadow overlay */}
+            <motion.div
+              className="relative w-56 h-56 md:w-72 md:h-72 flex-shrink-0 mb-8 md:mb-0"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+            >
+              <img
+                src={markPortrait}
+                alt="Mark Chamane portrait"
+                className="w-full h-full object-cover rounded-2xl border-4 border-white dark:border-amber-400 bg-white dark:bg-slate-900 shadow-2xl"
+              />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-400/30 via-white/10 to-black/30 dark:from-amber-400/40 dark:via-black/30 dark:to-black/60 pointer-events-none shadow-2xl" />
+            </motion.div>
+            {/* Cardholder with overlayed shadow */}
+            <motion.div
+              className="relative bg-gradient-to-br from-amber-100 to-amber-300 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 text-slate-900 dark:text-white flex flex-col items-center w-full max-w-md shadow-2xl"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+            >
+              <div className="absolute inset-0 rounded-2xl bg-white/30 dark:bg-black/30 pointer-events-none shadow-2xl" />
+              <div className="relative z-10 flex flex-col items-center w-full">
                 <User size={48} className="text-amber-400 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Professional Speaker</h3>
-                <p className="text-slate-300 dark:text-slate-700 text-sm mb-4">Strategic Consultant & Thought Leader</p>
-                <div className="space-y-2 text-sm">
-                  <div>🎤 Keynote Speaker</div>
-                  <div>👥 Workshop Facilitator</div>
-                  <div>🚀 Strategic Consultant</div>
-                  <div>💼 Executive Coach</div>
+                <h3 className="text-2xl font-bold mb-2">Professional Speaker</h3>
+                <p className="text-slate-700 dark:text-slate-300 text-base mb-4">Strategic Consultant & Thought Leader</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full mb-4">
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">1. Character Development</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">2. Mental Self-Image & Identity</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">3. Purpose & Vision</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">4. Discipline & Decision-Making</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">5. Overcoming Broken Environments</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">6. Leadership for the Next Generation</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">7. Emotional Intelligence & Healing</div>
+                  <div className="bg-white/70 dark:bg-slate-900/70 rounded-lg px-3 py-2 text-sm font-medium text-slate-800 dark:text-white">8. Faith, Morals & Spiritual Strength (if faith-based)</div>
                 </div>
               </div>
-            </div>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-6">
-                Meet Mark Chamane
-              </h1>
-              <p className="text-lg text-slate-600 dark:text-white mb-6 leading-relaxed">
-                With over 15 years of experience as a strategic consultant and thought leader based in Durban, 
-                Mark has captivated audiences at hundreds of events across South Africa and internationally.
-              </p>
-              <p className="text-lg text-slate-600 dark:text-white mb-8 leading-relaxed">
-                His dynamic speaking style combines practical insights with inspiring stories, 
-                creating memorable experiences that drive real change in organizations and individuals.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="bg-amber-100 p-2 rounded-lg">
-                    <CheckCircle className="text-amber-600" size={20} />
-                  </div>
-                  <span className="text-slate-700 dark:text-white font-semibold">500+ Speaking Events</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-amber-100 p-2 rounded-lg">
-                    <CheckCircle className="text-amber-600" size={20} />
-                  </div>
-                  <span className="text-slate-700 dark:text-white font-semibold">South African & International Experience</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-amber-100 p-2 rounded-lg">
-                    <CheckCircle className="text-amber-600" size={20} />
-                  </div>
-                  <span className="text-slate-700 dark:text-white font-semibold">MBA, Strategic Management</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-amber-100 p-2 rounded-lg">
-                    <CheckCircle className="text-amber-600" size={20} />
-                  </div>
-                  <span className="text-slate-700 dark:text-white font-semibold">Certified Professional Speaker</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
-
-      {/* Background Section */}
+      {/* Timeline Section: Mark's Journey */}
       <section className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">
-              Professional Background
-            </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300">
-              A proven track record of delivering exceptional value to organizations worldwide.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-amber-700 dark:text-amber-300 mb-4 animate-fade-in">Meet Mark Chamane</h2>
           </div>
-          
-          <div className="space-y-8">
-            <div className="bg-white dark:bg-black rounded-xl shadow-lg p-8 border border-gray-100 transition-colors duration-300">
-              <div className="flex flex-col items-center mb-6">
-                <img
-                  src={markSpeaking}
-                  alt="Mark Chamane speaking"
-                  className="w-full max-w-xs md:max-w-sm object-cover rounded-2xl shadow-lg border-4 border-white dark:border-slate-900 bg-white dark:bg-slate-900"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4">Education & Certifications</h3>
-              <ul className="space-y-3 text-slate-600 dark:text-white">
-                <li className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-green-500 mt-0.5" />
-                  <span>MBA in Strategic Management - University of KwaZulu-Natal</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-green-500 mt-0.5" />
-                  <span>Certified Professional Speaker (CPS) - Professional Speakers Association of Southern Africa</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-green-500 mt-0.5" />
-                  <span>Advanced Facilitation Certification - International Association of Facilitators</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white dark:bg-black rounded-xl shadow-lg p-8 border border-gray-100 transition-colors duration-300">
-              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4">Speaking Expertise</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-white mb-2">Industries</h4>
-                  <ul className="space-y-1 text-slate-600 dark:text-white">
-                    <li>• Technology & Innovation</li>
-                    <li>• Financial Services</li>
-                    <li>• Healthcare & Pharmaceuticals</li>
-                    <li>• Manufacturing & Mining</li>
-                    <li>• Education & Non-Profit</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-white mb-2">Topics</h4>
-                  <ul className="space-y-1 text-slate-600 dark:text-white">
-                    <li>• Strategic Leadership</li>
-                    <li>• Digital Transformation</li>
-                    <li>• Change Management</li>
-                    <li>• Innovation & Growth</li>
-                    <li>• Team Performance</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="space-y-10">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+            >
+              <TimelineItem year="🌱 Early Life">
+                Born in the rural village in KwaZulu-Natal, South Africa, Mark Chamane is a dynamic speaker, author, and founder of Mark.ed by Greatness. Despite growing up in a community marked by poverty and limited access to opportunity, Mark refused to let his environment shape his future.
+              </TimelineItem>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
+            >
+              <TimelineItem year="🎓 Varsity & Calling">
+                His journey from hardship to hope ignited a passion to help others do the same. After finishing varsity, he turned his full focus toward his true calling: developing young minds and building a world led by character.
+              </TimelineItem>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.7, ease: 'easeOut' }}
+            >
+              <TimelineItem year="🚀 Today">
+                Today, Mark travels across the country and beyond, equipping students, educators, professionals, and community leaders with the mindset, tools, and discipline needed to live purpose-driven lives.
+              </TimelineItem>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.7, ease: 'easeOut' }}
+            >
+              <TimelineItem year="💡 Impact">
+                Through keynote speaking, youth coaching, character development programs, and educational resources, Mark and his team have empowered thousands. His core belief is simple yet powerful: build a character so strong that it naturally does what must be done.
+              </TimelineItem>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.7, ease: 'easeOut' }}
+            >
+              <TimelineItem year="🌍 Mission">
+                <span className="block text-2xl md:text-3xl font-bold text-amber-700 dark:text-amber-300 mb-2">Mission</span>
+                <span className="block text-lg md:text-xl text-slate-700 dark:text-white mb-2">Our mission is clear: To equip the next generation with the character and mindset required to live with vision, courage, and integrity. We host seminars, workshops, and free tours to uplift communities — especially in underserved and overlooked areas.</span>
+                <span className="block text-lg md:text-xl text-slate-700 dark:text-white">Book MARK CHAMANE to speak, teach, and train your people. Or support the movement by donating to help us reach more youth through our global outreach programs. Together, let’s build a world led by character.</span>
+              </TimelineItem>
+            </motion.div>
           </div>
         </div>
       </section>

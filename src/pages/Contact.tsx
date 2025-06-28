@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { db } from '../firebase/config';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -39,8 +40,17 @@ export default function Contact() {
     <div className="pt-16">
       <section className="py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
+          <motion.div
+            className="grid lg:grid-cols-2 gap-12"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+            >
               <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white dark:font-bold mb-6">
                 Get In Touch
               </h1>
@@ -55,8 +65,8 @@ export default function Contact() {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <div className="font-semibold dark:font-bold dark:text-white">Phone</div>
-                    <div className="text-slate-600 dark:text-white dark:font-bold">+27 82 456 7890</div>
+                    <div className="font-semibold text-black dark:text-white dark:font-bold">Phone</div>
+                    <div className="text-black font-bold dark:text-white dark:font-bold">+27 61 053 1620</div>
                   </div>
                 </div>
                 
@@ -65,9 +75,9 @@ export default function Contact() {
                     <Mail size={20} />
                   </div>
                   <div>
-                    <div className="font-semibold dark:font-bold dark:text-white">Email</div>
-                    <div className="text-slate-600 dark:text-white dark:font-bold">
-                      <a href="mailto:info@markedbygreatness.co.za" className="hover:underline text-white">
+                    <div className="font-semibold text-black dark:text-white dark:font-bold">Email</div>
+                    <div className="text-black font-bold dark:text-white dark:font-bold">
+                      <a href="mailto:info@markedbygreatness.co.za" className="hover:underline text-black dark:text-white dark:font-bold">
                         info@markedbygreatness.co.za
                       </a>
                     </div>
@@ -79,14 +89,19 @@ export default function Contact() {
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <div className="font-semibold dark:font-bold dark:text-white">Based In</div>
-                    <div className="text-slate-600 dark:text-white dark:font-bold">Durban, KwaZulu-Natal (Available Nationwide & Internationally)</div>
+                    <div className="font-semibold text-black dark:text-white dark:font-bold">Based In</div>
+                    <div className="text-black font-bold dark:text-white dark:font-bold">27850 Mulberry Street Ext 28 Protea (Available Nationwide & Internationally)</div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 text-slate-800 dark:text-white dark:font-bold">
+            <motion.div
+              className="bg-white dark:bg-slate-900 rounded-2xl p-8 text-slate-800 dark:text-white dark:font-bold"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+            >
               <h3 className="text-2xl font-bold dark:text-white dark:font-bold mb-6">Quick Inquiry</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -132,8 +147,8 @@ export default function Contact() {
                   Send Message
                 </button>
               </form>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

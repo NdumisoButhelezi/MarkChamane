@@ -9,3 +9,11 @@
 .animate-spin-slow {
   animation: spin-slow 2s linear infinite;
 }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.bounce {
+  animation: bounce 1.5s infinite alternate;
+}
